@@ -1,0 +1,19 @@
+---
+- name: Ubuntu prepare
+  hosts: deb
+  gather_facts: false
+  tasks:
+    - name: Inastall Python
+      raw: apt update && apt install -y python3
+
+
+- name: Print os facts
+  hosts: all
+  tasks:
+    - name: Print OS
+      debug:
+        msg: "{{ ansible_distribution }}"
+    - name: Print fact
+      debug:
+        msg: "{{ some_fact }}"
+
